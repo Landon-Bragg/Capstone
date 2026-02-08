@@ -1,1 +1,21 @@
 QUICKSTART.MD
+# Python
+__pycache__/
+*.pyc
+venv/
+*.db
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Environment
+.env
