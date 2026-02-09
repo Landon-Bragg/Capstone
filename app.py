@@ -69,6 +69,6 @@ def create_app(config_class=Config):
 if __name__ == '__main__':
     app = create_app()
     print("🚀 Starting HydroSpark API Server...")
-    print("📍 API running on http://localhost:5000")
-    print("📖 Docs: http://localhost:5000/")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    print("📍 API running on http://localhost:5001")
+    print("📖 Docs: http://localhost:5001/")
+    app.run(host='0.0.0.0', port=5001, debug=True)

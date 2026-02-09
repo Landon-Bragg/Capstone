@@ -7,20 +7,27 @@ function Login({ onLogin }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
+  setLoading(true);
 
-    try {
-      const response = await authAPI.login(email, password);
-      onLogin(response.data.user, response.data.access_token);
-    } catch (err) {
-      setError(err.response?.data?.error || 'Login failed. Please try again.');
-    } finally {
-      setLoading(false);
+  try {
+    const response = await authAPI.login(email, password);
+    const { user, access_token } = response.data;
+    
+    if (!access_token) {
+      alert('No token received: ' + JSON.stringify(response.data));
+      return;
     }
-  };
+    
+    onLogin(user, access_token);
+  } catch (err) {
+    setError(err.response?.data?.error || 'Login failed. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   const quickLogin = (email, password) => {
     setEmail(email);

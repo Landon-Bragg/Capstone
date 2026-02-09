@@ -44,7 +44,7 @@ npm install
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 python app.py
 ```
-Backend runs on `http://localhost:5000`
+Backend runs on `http://localhost:5001`
 
 2. **Start Frontend** (in a new terminal)
 ```bash

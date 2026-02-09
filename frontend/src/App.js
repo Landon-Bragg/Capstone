@@ -12,7 +12,7 @@ import Customers from './pages/Customers';
 import Anomalies from './pages/Anomalies';
 import Analytics from './pages/Analytics';
 
-import { authAPI } from './pages/services/api';
+import { authAPI } from './services/api';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,11 +37,12 @@ function App() {
   };
 
   const handleLogin = (userData, token) => {
+    console.log('handleLogin called with:', userData, token);
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
+    console.log('Token saved:', localStorage.getItem('token'));
   };
-
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
